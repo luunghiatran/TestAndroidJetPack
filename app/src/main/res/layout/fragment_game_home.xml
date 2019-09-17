@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".architecture.navigation.fragments.GameHomeFragment"
+    android:orientation="vertical"
+    android:background="#A8B5FF"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:text="How Luck You Are"
+        android:textColor="#FFEB3B"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_win"
+            android:tint="#F44336"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_lose"
+            android:tint="#673AB7"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonPlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:layout_marginTop="16dp"
+        android:background="#4CAF50"/>
+
+    <Button
+        android:id="@+id/buttonLeaderBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leader board" />
+
+
+</LinearLayout>

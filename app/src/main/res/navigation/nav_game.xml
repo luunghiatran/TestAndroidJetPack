@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_game"
+    app:startDestination="@id/gameHomeFragment">
+
+    <fragment
+        android:id="@+id/gameHomeFragment"
+        android:name="com.example.androidjetpack.architecture.navigation.fragments.GameHomeFragment"
+        android:label="fragment_game_home"
+        tools:layout="@layout/fragment_game_home" >
+        <action
+            android:id="@+id/action_gameHomeFragment_to_leaderBoardFragment"
+            app:destination="@id/leaderBoardFragment" />
+        <action
+            android:id="@+id/action_gameHomeFragment_to_playingFragment"
+            app:destination="@id/playingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaderBoardFragment"
+        android:name="com.example.androidjetpack.architecture.navigation.fragments.LeaderBoardFragment"
+        android:label="fragment_leader_board"
+        tools:layout="@layout/fragment_leader_board">
+        <!--nhận Argument gởi đến-->
+        <argument
+            android:name="newName"
+            app:argType="string"
+            android:defaultValue="-" />
+
+        <!--Nhận Url gởi đến-->
+        <deepLink app:uri="www.nghia.com/{newName}" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/playingFragment"
+        android:name="com.example.androidjetpack.architecture.navigation.fragments.PlayingFragment"
+        android:label="fragment_playing"
+        tools:layout="@layout/fragment_playing" >
+        <action
+            android:id="@+id/action_playingFragment_to_winFragment"
+            app:destination="@id/winFragment" />
+        <action
+            android:id="@+id/action_playingFragment_to_loseFragment"
+            app:destination="@id/loseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/winFragment"
+        android:name="com.example.androidjetpack.architecture.navigation.fragments.WinFragment"
+        android:label="fragment_win"
+        tools:layout="@layout/fragment_win" >
+
+        <action
+            android:id="@+id/action_winFragment_to_leaderBoardFragment"
+            app:destination="@id/leaderBoardFragment" />
+        <action
+            android:id="@+id/action_playAgain"
+            app:popUpTo="@id/gameHomeFragment" />
+        <!--app:popUpTo="@id/gameHomeFragment"
+        Nhảy đến Fragment trước, bỏ qua tất cả fragment ở giữa
+        -->
+    </fragment>
+    <fragment
+        android:id="@+id/loseFragment"
+        android:name="com.example.androidjetpack.architecture.navigation.fragments.LoseFragment"
+        android:label="fragment_lose"
+        tools:layout="@layout/fragment_lose" >
+        <action
+            android:id="@+id/action_loseFragment_to_leaderBoardFragment"
+            app:destination="@id/leaderBoardFragment" />
+        <action
+            android:id="@+id/action_playAgain"
+            app:popUpTo="@id/gameHomeFragment" />
+        <!--app:popUpTo="@id/gameHomeFragment"
+        Nhảy đến Fragment trước, bỏ qua tất cả fragment ở giữa-->
+    </fragment>
+    <fragment
+        android:id="@+id/deepLinkFragment"
+        android:name="com.example.androidjetpack.architecture.navigation.fragments.DeepLinkFragment"
+        android:label="fragment_deep_link"
+        tools:layout="@layout/fragment_deep_link" />
+</navigation>
